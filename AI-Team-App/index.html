@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7161d8">
+  <meta name="description" content="得意と希望を持ち寄って、納得できるチームの役割分担を。大学生のためのグループワーク支援アプリ。">
+  <title>チームクエスト｜みんなの得意で、前に進もう。</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="quest.css">
+  <link rel="stylesheet" href="team.css">
+  <script src="matching.js" defer></script>
+  <script src="quest-engine.js" defer></script>
+  <script src="quest-ui.js" defer></script>
+  <script src="team-ui.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <div id="app"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="confirm-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-icon">✦</div>
+    <h2 id="dialog-title"></h2>
+    <p id="dialog-message"></p>
+    <div class="dialog-actions"><button class="button secondary" id="dialog-cancel">キャンセル</button><button class="button primary" id="dialog-ok">続ける</button></div>
+  </dialog>
+  <noscript>このアプリを使うには、ブラウザのJavaScriptを有効にしてください。</noscript>
+</body>
+</html>
