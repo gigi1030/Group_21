@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClearMate | 仲間とクエストへ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="wrap">
+<a class="logo" href="#top">ClearMate<span style="color:#e8a548">✦</span>
+</a>
+<nav>
+<a href="#choose">仲間を選ぶ</a>
+<a href="#boss">ボス戦</a>
+<a href="#play">遊び方</a>
+<a href="#grow">育成</a>
+<a href="#report">貢献記録</a>
+</nav>
+<a class="btn" href="#choose">はじめる</a>
+</header>
+<main id="top">
+<div class="wrap">
+<section class="hero">
+<div>
+<p class="eyebrow">大学生のためのグループワーククエスト</p>
+<h1>ひとりじゃない。<br>
+<em>仲間と、クリア！</em>
+</h1>
+<p>課題をクエストに変えて、得意を持ち寄り、助け合いながらゴールへ。あなたの小さな相棒と冒険を始めよう。</p>
+<a class="btn" href="#choose">相棒を選ぶ →</a>
+</div>
+<div class="heroart" id="heroart" aria-hidden="true">
+</div>
+</section>
+</div>
+<section class="section wrap center" id="choose">
+<p class="eyebrow">01 / CHOOSE YOUR MATE</p>
+<h2>きみの分身を、見つけよう。</h2>
+<p class="sub">9種類の不思議な生き物から、好きな相棒を選んでね。見た目によって得意分野や能力が決まることはありません。</p>
+<div class="character-grid" id="characters" role="group" aria-label="キャラクター選択">
+</div>
+<div class="pickbar">
+<img id="chosenImg" class="hidden" alt="">
+<div>
+<strong id="chosenText">まだ相棒を選んでいません</strong>
+<div class="note">選択はこのブラウザーに保存されます。</div>
+</div>
+<label>表示名 <input id="nickname" maxlength="24" placeholder="ニックネーム（任意）">
+</label>
+<button class="btn" id="confirm" disabled>この相棒で進む</button>
+</div>
+<p id="pickStatus" role="status" class="note">
+</p>
+</section>
+<section class="section band" id="world">
+<div class="wrap center">
+<p class="eyebrow">02 / THE WORLD</p>
+<h2>グループ課題が、みんなの冒険になる。</h2>
+<p class="sub">誰か一人に作業が偏ったり、助け方が分からなかったり。クリアメイトは、分担の相談から最後の貢献記録までをつなぎます。</p>
+<div class="worry">
+<span>「また私が全部まとめるの？」</span>
+<span>「何を手伝えばいい？」</span>
+<span>「頑張りは伝わるかな？」</span>
+</div>
+</div>
+</section>
+<section class="section boss-section" id="boss">
+<div class="wrap center">
+<p class="eyebrow">03 / BOSS BATTLE</p>
+<h2>みんなで先生を倒そう！</h2>
+<p class="sub">先生から出された課題が、ボス戦に変わる。仲間と役割を分け、クエストを完了するたびに先生ボスのHPが減っていく！</p>
+<div class="battle">
+<div class="boss-card">
+<div class="number">BOSS / 先生</div>
+<img class="teacher-boss-image" src="images/teacher_boss.svg" alt="眼鏡をかけた架空の先生ボスのイラスト">
+<div class="battle-hp">
+<span>先生ボス HP</span>
+<strong id="bossValue">100 / 100</strong>
+</div>
+<div class="meter hp" role="progressbar" aria-label="先生ボスのHP" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" id="bossBar">
+<i id="bossFill" style="width:100%">
+</i>
+</div>
+</div>
+<div class="party" id="battleParty">
+</div>
+<div class="battle-actions" id="battleActions">
+<button data-task="0">資料収集を完了</button>
+<button data-task="1">スライド作成を完了</button>
+<button data-task="2">まとめ・発表を完了</button>
+</div>
+<p id="battleStatus" role="status">3つの作業を完了して、チームでクリアしよう。</p>
+<button class="plain" id="battleReset">もう一度挑戦</button>
+</div>
+<p class="note">体験用の仮設定です。先生のイラストは架空の人物で、実際の課題評価とは関係ありません。</p>
+</div>
+</section>
+<section class="section wrap" id="play">
+<div class="center">
+<p class="eyebrow">04 / HOW TO PLAY</p>
+<h2>クエストの進め方</h2>
+</div>
+<div class="cards" id="playCards">
+</div>
+<div class="flow-demo" id="flowDemo">
+<div class="flow-tabs" id="flowTabs" aria-label="利用の流れ">
+</div>
+<div class="flow-stage" id="flowStage">
+</div>
+<div class="flow-bottom">
+<p id="flowCaption" role="status">
+</p>
+<div>
+<button class="btn" id="flowNext">続きを見る</button> <button class="plain" id="flowReset">最初から</button>
+</div>
+</div>
+<div class="flow-track">
+<i id="flowProgress">
+</i>
+</div>
+</div>
+<p class="note center">画面は利用イメージです。実際のAI処理や先生への送信は行いません。</p>
+</section>
+<section class="section game" id="grow">
+<div class="wrap">
+<div class="center">
+<p class="eyebrow">05 / GROW YOUR MATE</p>
+<h2>相棒と一緒にレベルアップ！</h2>
+<p class="sub">仲間に確認された成果でEXPを獲得。期限を過ぎるとHPが減少し、支援や追加の作業で復活を目指します。</p>
+</div>
+<div class="game-demo">
+<img id="demoAvatar" alt="体験用キャラクター">
+<div>
+<strong id="demoName">相棒の育成デモ</strong>
+<div>HP <span id="hpText">
+</span>
+</div>
+<div class="meter hp" role="progressbar" aria-label="HP" aria-valuemin="0" aria-valuemax="100" id="hpBar">
+<i id="hpFill">
+</i>
+</div>
+<div>EXP <span id="expText">
+</span> ・ Lv.<span id="level">
+</span>
+</div>
+<div class="meter" role="progressbar" aria-label="EXP" aria-valuemin="0" aria-valuemax="100" id="expBar">
+<i id="expFill">
+</i>
+</div>
+<div class="actions">
+<button id="complete">✓ 成果を確認</button>
+<button id="late">期限を過ぎる</button>
+<button id="help">仲間を助ける</button>
+<button id="reset">リセット</button>
+</div>
+<div id="status" role="status" class="note">ボタンを押して体験してみよう。</div>
+</div>
+</div>
+<p class="note">※数値は体験用の仮設定です。HP・EXPは成績ではありません。実際のサービスでは期限変更や支援の相談も想定しています。</p>
+</div>
+</section>
+<section class="section wrap report" id="report">
+<div>
+<p class="eyebrow">06 / YOUR STORY</p>
+<h2>冒険の記録を、<br>先生にも。</h2>
+<p>成果物だけでなく、途中で引き継いだ作業や仲間へのサポートも記録。AIが一人ひとりの貢献を整理する構想です。</p>
+</div>
+<div class="paper">
+<strong>貢献レポート</strong>
+<p class="note">作成イメージ ／ グループ発表</p>
+<div id="reportRows">
+</div>
+</div>
+</section>
+<section class="wrap end" id="start">
+<p class="eyebrow">READY FOR YOUR QUEST?</p>
+<h2>次の課題を、冒険にしよう。</h2>
+<p id="endText">まずは好きな相棒を見つけよう。</p>
+<a class="btn" id="endButton" href="#choose">相棒を選ぶ</a>
+<p class="note">現在は開発中の紹介・体験版です。外部の操作デモにはキャラクター選択は引き継がれません。</p>
+</section>
+</main>
+<footer class="wrap">
+<strong>ClearMate ✦</strong>
+<span>大学生のためのグループワーク支援アプリ</span>
+<a href="https://group-quest-prototype.ldn1114173170.chatgpt.site/demo/">既存の操作デモ</a>
+</footer>
+<script src="script.js" defer>
+</script>
+</body>
+</html>
